@@ -8,7 +8,7 @@ from utils import read_json
 from utils import write_file
 
 if __name__ == '__main__':
-    path_documents = 'D:/Documents/Projet/'
+    path_documents = 'D:/Documents/ENSTA/Matières/IN/IN104/pmc_json/'
     list_documents = glob.glob(path_documents + '*.xml.json')[0:1]
 
     # Path of each document
@@ -33,7 +33,7 @@ if __name__ == '__main__':
         obj_preprocess = PreprocessData(text)
         # Convert the text to lower case
         
-        new_text=obj_preprocess.convert_lowercase(text)
+        new_text=obj_preprocess.convert_lowercase()
 
         # Remove punctuation
         new_text=obj_preprocess.remove_punctuation(new_text)
