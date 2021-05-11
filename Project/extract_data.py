@@ -23,8 +23,10 @@ class ExtractData:
         :return text or title article in lowercase
         :rtype: str
         """
+        text=[]
+        for dictionnary in self.data['body_text']:
+            text+=dictionnary['text']
         
-        
-        text = self.data['content'].lower()  #modif
+        text = text.lower()  #modif
         return text
 

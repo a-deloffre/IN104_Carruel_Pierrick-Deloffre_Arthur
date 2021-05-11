@@ -5,10 +5,11 @@ import sys
 from extract_data import ExtractData
 from preprocess_data import PreprocessData
 from utils import read_json
+from utils import write_file
 
 if __name__ == '__main__':
-    path_documents = ""
-    list_documents = glob.glob(path_documents + '*.json')[0:1]
+    path_documents = 'D:/Documents/Projet/'
+    list_documents = glob.glob(path_documents + '*.xml.json')[0:1]
 
     # Path of each document
     for path_doc in list_documents:
@@ -21,24 +22,36 @@ if __name__ == '__main__':
         print(paper_id)
 
         # call get_title method
-
+        title=obj_data.get_title()
+        print(title)
+        
         # call get_text method
+        text=obj_data.get_text()
+        print(text)
 
         # Object to pre-process the text
         obj_preprocess = PreprocessData(text)
         # Convert the text to lower case
-        ##S'arreter là au max pour mardi 4 mai
+        
+        new_text=obj_preprocess.convert_lowercase(text)
 
         # Remove punctuation
+        new_text=obj_preprocess.remove_punctuation(new_text)
 
         # Remove numbers
+        new_text=obj_preprocess.convert_lowercase(new_text)
 
         # Remove stop words
+        new_text=obj_preprocess.remove_stop_words(new_text)
 
         # Remove the special characters
+        new_text=obj_preprocess.remove_special_character(new_text)
 
         # Lemmatization
+        new_text=obj_preprocess.lemmatization_text(new_text)
 
         # Write the documents
+        
+        new_text= write_file(path_doc,new_text)
 
 
