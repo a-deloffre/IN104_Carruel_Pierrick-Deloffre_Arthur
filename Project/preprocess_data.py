@@ -46,7 +46,7 @@ class PreprocessData:
         """
         if isinstance(text, str):
             #pass
-            lst_words=[word for word in word_tokenize(text) if word not in self.string.punctuation]
+            lst_words=[word for word in word_tokenize(text) if word not in self.punctuation]
         return ' '.join(lst_words)
 
     def remove_number(self, text):
@@ -59,7 +59,7 @@ class PreprocessData:
         """
         if isinstance(text, str):
             #pass
-            lst_words=[word for word in word_tokenize(text) if not word.is_number()]
+            lst_words=[word for word in word_tokenize(text) if not is_number(word)]
         return ' '.join(lst_words)
 
     def remove_special_character(self, text):

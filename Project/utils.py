@@ -18,13 +18,15 @@ def read_json(path_file):
         return dic_data
 
 
-def write_file(path_file, title_or_content):
+def write_file(path_file, title_or_content, filename):
     """It creates a new document
     :param path_file: it is the path you will save the document
     :param title_or_content: yu will save the text or the title document
     :type path_file: str
     :type title_or_content: str
     """
-    title_or_content=open(path_file,'w') #modif
-    return title_or_content
+    #title_or_content=open(path_file + filename +".txt",'w') #modif
+    #return title_or_content
+    with open(path_file + filename + ".txt",'w+') as file:
+        file.writer(title_or_content)
 
