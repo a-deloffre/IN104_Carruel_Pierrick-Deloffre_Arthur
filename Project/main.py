@@ -20,7 +20,7 @@ if __name__ == '__main__':
         # call get_paper_id method
         paper_id=obj_data.get_paper_id()
         print(paper_id)
-
+        
         # call get_title method
         title=obj_data.get_title()
         print(title)
@@ -39,7 +39,7 @@ if __name__ == '__main__':
         new_text=obj_preprocess.remove_punctuation(new_text)
 
         # Remove numbers
-        new_text=obj_preprocess.convert_lowercase(new_text)
+        new_text=obj_preprocess.remove_number(new_text)
 
         # Remove stop words
         new_text=obj_preprocess.remove_stop_words(new_text)
@@ -49,9 +49,9 @@ if __name__ == '__main__':
 
         # Lemmatization
         new_text=obj_preprocess.lemmatization_text(new_text)
-
+        print (new_text)
         # Write the documents
-        
-        new_text= write_file(path_doc,new_text)
+        print("fini")
+        write_file(path_doc,new_text, paper_id)
 
 
