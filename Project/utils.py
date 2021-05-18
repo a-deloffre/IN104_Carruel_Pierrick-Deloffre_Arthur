@@ -28,7 +28,7 @@ def write_file(path_file, title_or_content, filename):
     #title_or_content=open(path_file + filename +".txt",'w') #modif
     #return title_or_content
     with open(path_file + filename + ".txt",'w+', encoding='utf-8') as file:
-       #◘ print(title_or_content)
+       # print(title_or_content)
         file.write(title_or_content)
         file.close()
 
