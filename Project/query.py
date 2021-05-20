@@ -6,10 +6,13 @@ class Query:
 
     def get_query(self, parser, searcher, number_docs_result_search):
         my_query = parser.parse(self.query)
+        print(my_query)
         results = searcher.search(my_query, limit=number_docs_result_search)
-
+        print('cherche')
+        print(results)
         docs = []
         for x in list(results):
+            print(111)
             doc_name = x['path']
             docs.append(doc_name)
         return docs

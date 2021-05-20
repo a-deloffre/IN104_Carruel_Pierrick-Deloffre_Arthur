@@ -24,7 +24,7 @@ class PreprocessData:
         """
         return self.text.lower()
 
-    def remove_stop_words(self, text):
+    def remove_all(self, text):
         """
         It removes the stopwords
         :param text: it is the text of the article
@@ -33,45 +33,45 @@ class PreprocessData:
         :rtype: str
         """
         if isinstance(text, str):
-            lst_words = [word for word in word_tokenize(text) if word not in self.stop_words]
+            lst_words = [word for word in word_tokenize(text) if word not in self.stop_words and word not in self.punctuation and not is_number(word) and word.isalnum ()]
         return ' '.join(lst_words)
 
-    def remove_punctuation(self, text):
-        """
-        It removes the punctuation
-        :param text: it is the text of the article
-        :type: str
-        :return text: article text without punctuation
-        :rtype: str
-        """
-        if isinstance(text, str):
-            #pass
-            lst_words=[word for word in word_tokenize(text) if word not in self.punctuation]
-        return ' '.join(lst_words)
+    # def remove_punctuation(self, text):
+    #     """
+    #     It removes the punctuation
+    #     :param text: it is the text of the article
+    #     :type: str
+    #     :return text: article text without punctuation
+    #     :rtype: str
+    #     """
+    #     if isinstance(text, str):
+    #         #pass
+    #         lst_words=[word for word in word_tokenize(text) if word not in self.punctuation]
+    #     return ' '.join(lst_words)
 
-    def remove_number(self, text):
-        """
-        It removes the numbers (int or float)
-        :param text: it is the text of the article
-        :type: str
-        :return text: article text without stop words
-        :rtype: str
-        """
-        if isinstance(text, str):
-            #pass
-            lst_words=[word for word in word_tokenize(text) if not is_number(word)]
-        return ' '.join(lst_words)
+    # def remove_number(self, text):
+    #     """
+    #     It removes the numbers (int or float)
+    #     :param text: it is the text of the article
+    #     :type: str
+    #     :return text: article text without stop words
+    #     :rtype: str
+    #     """
+    #     if isinstance(text, str):
+    #         #pass
+    #         lst_words=[word for word in word_tokenize(text) if not is_number(word)]
+    #     return ' '.join(lst_words)
 
-    def remove_special_character(self, text):
-        """
-        :param text: it is the text of the article
-        :type: str
-        :return text: article text without special characters
-        :rtype: str
-        """
-        if isinstance(text, str):
-            lst_words=[word for word in word_tokenize(text) if word.isalnum ()]
-        return ' '.join(lst_words)
+    # def remove_special_character(self, text):
+    #     """
+    #     :param text: it is the text of the article
+    #     :type: str
+    #     :return text: article text without special characters
+    #     :rtype: str
+    #     """
+    #     if isinstance(text, str):
+    #         lst_words=[word for word in word_tokenize(text) if word.isalnum ()]
+    #     return ' '.join(lst_words)
 
     def lemmatization_text(self, text):
         if isinstance(text, str):
