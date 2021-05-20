@@ -10,6 +10,7 @@ from utils import write_file
 if __name__ == '__main__':
     path_documents = 'D:/Documents/ENSTA/Matières/IN/IN104/pmc_json/'
     list_documents = glob.glob(path_documents + '*.xml.json')
+    path_new_doc='D:/Documents/ENSTA/Matières/IN/IN104/new/'
 
     # Path of each document
     for path_doc in list_documents:
@@ -35,23 +36,23 @@ if __name__ == '__main__':
         
         new_text=obj_preprocess.convert_lowercase()
 
-        # Remove punctuation
-        new_text=obj_preprocess.remove_punctuation(new_text)
+        # Remove punctuation, number , stop words, special characters
+        new_text=obj_preprocess.remove_all(new_text)
 
         # Remove numbers
-        new_text=obj_preprocess.remove_number(new_text)
+       # new_text=obj_preprocess.remove_number(new_text)
 
         # Remove stop words
-        new_text=obj_preprocess.remove_stop_words(new_text)
+        #new_text=obj_preprocess.remove_stop_words(new_text)
 
         # Remove the special characters
-        new_text=obj_preprocess.remove_special_character(new_text)
+       # new_text=obj_preprocess.remove_special_character(new_text)
 
         # Lemmatization
         new_text=obj_preprocess.lemmatization_text(new_text)
        # print (new_text)
         # Write the documents
        # print("fini" + '\n')
-        write_file(path_doc,new_text, paper_id)
+        write_file(path_new_doc,new_text, paper_id)
 
 
