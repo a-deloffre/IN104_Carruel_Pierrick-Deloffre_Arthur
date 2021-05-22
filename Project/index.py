@@ -12,7 +12,8 @@ def create_index(save_index_folder, index_name, num_docs_index, lst_articlesInde
         ix = create_in(save_index_folder, schema, index_name)  
         # Cette ligne retourne un index et prend en compte l'emplacement spécifié pour le construire
         
-        writer = ix.writer(procs=6, multisegment=True, limitmb=4096)  
+        writer = ix.writer(procs=6, multisegment=True, limitmb=4096)
+        # On introduit writer, qui permet de modifier l'index en "écrivant" dessus
         # procs=6, limitmb=4GB## OR 8192
 
         for idx, path_name_file_index in enumerate(lst_articlesIndex[:num_docs_index]):
